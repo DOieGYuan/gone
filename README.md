@@ -7,5 +7,18 @@ Integrate well-established methods to conduct genomic-centric metagenomics for r
 * For advanced researchers, changing parameters manually is welcomed.  
 * More functions including phylogenetic analysis, taxonomic classification, function annotation and ploting are under development.  
 * Hope to assist your (genomic-centric) metagenomic analysis from raw sequences to publishable figures.  
+# Installation
+You have to have git installed. If not, run ```pip install git``` to install it.
+Then
+# Quick start
+First, build all prerequisites by simply run *build.sh* or configurate [manually]()
+```
+source build.sh
+```
+Then, run the pipeline
+```
+soure EasyGCMeta [myfolder]
+```
+Done
   
 **to be continued ...(First release aim at 2020-12-03)**
