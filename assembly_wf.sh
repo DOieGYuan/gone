@@ -15,6 +15,6 @@ conda activate assembly
 megahit -1 $forwardseq -2 $reverseseq -o assembly --out-prefix ${1%} -t $2
 rm -rf assembly/intermediate_contigs
 
-cd ..
+cd -
 conda deactivate
 echo -e "\033[32;1mAssembly finished\033[0m"
