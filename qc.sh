@@ -30,4 +30,4 @@ rm *.Raw_?.fq.gz*
 rm TruSeq3-PE.fa
 
 echo -e "\033[32;1mQuality control done\033[0m"
-cd ..
+cd -
