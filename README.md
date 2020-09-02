@@ -10,10 +10,10 @@ Integrate well-established methods to conduct genomic-centric metagenomics for r
 * Hope to assist your (genomic-centric) metagenomic analysis from raw sequences to publishable figures.  
 ## Workflow
 ## Installation
-You have to have git installed. If not, run ```pip install git``` to install it.
-Then
+You have to have git installed. If not, run ```pip install git``` to install it.  
+Then install [Anaconda](https://www.anaconda.com/) following the offical [document](https://docs.anaconda.com/anaconda/install/).
 ## Quick start
-First, build all prerequisites by simply run *build.sh* or configurate [manually]()
+First, build all prerequisites by simply run *build.sh* or install all the dependencies [manually]()
 ```
 source build.sh
 ```
