@@ -5,12 +5,12 @@ Integrate well-established methods to conduct genomic-centric metagenomics for r
 * This pipeline is easy to use with **only one** parameter, namely, the directory with paired-end fastq, required.  
 * Single command ```source EasyGCMeta [myfolder]``` to finish all processes. Also, seperate modules or tools are available for specific functions. 
 * All bioinformatic tools and parameters are refered to published papers and suitable for most of the situations.  
-* For advanced researchers, changing parameters manually is welcomed.  
-* More functions including phylogenetic analysis, taxonomic classification, function annotation and ploting are under development.  
+* Still flexible because all parameters cound be adjusted if you really know what you are doing.  
+* More modules including phylogenetic analysis, taxonomic classification, function annotation and ploting are under development.  
 * Hope to assist your (genomic-centric) metagenomic analysis from raw sequences to publishable figures.  
 ## Workflow
 ## Installation
-You have to have git installed. If not, run ```pip install git``` to install it.  
+You have to have git installed. If not, run ```pip install git```, or if you have root permission, run ```sudo apt-get install git``` to install it.  
 Then install [Anaconda](https://www.anaconda.com/) following the offical [document](https://docs.anaconda.com/anaconda/install/).
 ## Quick start
 First, build all prerequisites by simply run *build.sh* or install all the dependencies [manually]()
