@@ -1,13 +1,11 @@
-# Easy-genomic-centric-metagenomics-pipepline
+# easyG: one command to perform genome centric metagenomics
 ## About
-Integrate well-established methods to conduct genomic-centric metagenomics for researchers who are busy in wet experiments but have no time in learning bioinformatics.  
+This software integrates state-of-the-art tools to conduct genome centric metagenomics for researchers who are unfamiliar with command line or have limited time in learning bioinformatics.  
   
-* This pipeline is easy to use with **only one** parameter, namely, the directory with paired-end fastq, required.  
-* Single command ```source EasyGCMeta [myfolder]``` to finish all processes (raw data to publishable figures). Also, seperate modules or tools are available for specific functions. 
-* All bioinformatic tools and parameters are refered to published papers and suitable for most of the situations.  
-* Still flexible because all parameters cound be adjusted if you really know what you are doing.  
-* More plugins including phylogenetic analysis, taxonomic classification, function annotation and ploting are under development.  
-* Hope to assist your (genomic-centric) metagenomic analysis from raw sequences to publishable figures.  
+* This pipeline is easy to use with **only one** required parameter (the working directory).  
+* Seperated modules keep the pipeline flexible enough for advanced user. 
+* All bioinformatic tools and parameters are selected automatically to optimize the results.    
+* Assist your (genome-centric) metagenomic analysis from raw sequences to publishable figures.  
 ## Workflow
 ## Installation
 You have to have git installed. If not, run ```pip install git```, or if you have root permission, run ```sudo apt-get install git``` to install it.  
