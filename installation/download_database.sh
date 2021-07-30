@@ -1,8 +1,8 @@
-# Usage source build.sh [Database directory]
+#!/usr/bin/env bash
 
 # Build database directory
 test -e $1 || mkdir $1
-echo "easyGCM_DATABASE=$1" >> ~/.bashrc
+echo "GONE_DATABASE=$1" >> ~/.bashrc
 echo "REFINEM_DATABSE=$1/refineM" >> ~/.bashrc
 
 # Build using bioconda

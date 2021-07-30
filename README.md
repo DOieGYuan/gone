@@ -1,6 +1,6 @@
-# easyG: one command to perform auto-optimizing genome centric metagenomics
+# GOne: perform auto-optimizing genome-centric metagenomics with one command
 ## About
-This software integrates state-of-the-art tools to conduct genome centric metagenomics for researchers who are unfamiliar with command line tools or have limited time in learning bioinformatics.  
+This software integrates state-of-the-art tools to conduct genome-centric metagenomics for researchers who are unfamiliar with command line tools or have limited time in learning bioinformatics.  
 ## Features
 * **Easy to use**: only one required parameter (the working directory).  
 * **Flexible**: seperated modules for customized workflows.
