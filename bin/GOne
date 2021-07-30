@@ -1,0 +1,111 @@
+#!/usr/bin/env bash
+############################################################################
+# Master GOne script that calls on individual modules/pipelines            #
+# The framework is derived from metaWRAP https://github.com/bxlab/metawrap #
+############################################################################
+
+VERSION="0.1"
+
+function help_message () {
+  echo""
+	echo "GOne v=$VERSION"
+	echo "Usage: gone [option]"
+	echo ""
+  echo "	Workflow:"
+	echo "	wf		Performed the workflow with automatically optimized (adaptive) parameters"
+  echo ""
+  echo "	Modules (Fundamental processes):"
+  echo "	qc	Remove contaminations and low-quality reads"
+	echo "	assembly	Assemble a pair short reads into contigs"
+	echo "	coassembly	Assemble multiple pairs short reads into contigs"
+	echo "	binning_single	Classify contigs from single assembly into genomes (bins)"
+  echo "	binning_multiple	Classify contigs from coassembly into genomes (bins)"
+  echo "  bin_refine  Improve binning results"
+  echo "  bin_cluster Dereplicate bins"
+  echo "  bin_taxonomy  Taxonomically classify bins"
+  echo "  bin_quant Quantify bins"
+  echo "  bin_function  Annotate bins with functions"
+	echo ""
+  echo "	Modules (Advanced features):"
+	echo "	arg		Find ARGs in bins"
+	echo ""
+	echo "	--help | -h		show this help message"
+	echo "	--version | -v	show GOne version"
+	echo "	--show-config	show where the gone configuration files are stored"
+  echo ""
+}
+
+config_file=$(which config-gone)
+source $config_file
+if [[ $? -ne 0 ]]; then
+	echo "[Error: installation issue] cannot find config-gone file !"
+	exit 1
+fi
+
+function comm () {
+  ${SOFT}/print_comment.py "$1" "-"
+}
+
+########################################################################################################
+########################     LOADING IN THE PARAMETERS AND RUNNING MODULE       ########################
+########################################################################################################
+
+# setting scripts, pipelines, and databases locations from config file (should be in same folder as main script)
+
+if [ "$1" = wf ]; then
+	echo gone wf ${@:2}
+	time ${PIPES}/wf_main.sh ${@:2}
+elif [ "$1" = qc ]; then
+  echo gone qc ${@:2}
+  time ${PIPES}/qc.sh ${@:2}
+elif [ "$1" = assembly ]; then
+	echo gone assembly ${@:2}
+	time ${PIPES}/assembly.sh ${@:2}
+elif [ "$1" = coassembly ]; then
+	echo gone coassembly ${@:2}
+	time ${PIPES}/coassembly.sh ${@:2}
+elif [ "$1" = binning_single ]; then
+        echo gone binning_single ${@:2}
+        time ${PIPES}/binning_single.sh ${@:2}
+elif [ "$1" = binning_multiple ]; then
+        echo gone binning_multiple ${@:2}
+	time ${PIPES}/binning_multiple.sh ${@:2}
+elif [ "$1" = bin_refine ]; then
+        echo gone bin_refine ${@:2}
+	time ${PIPES}/bin_refine.sh ${@:2}
+elif [ "$1" = bin_cluster ]; then
+	echo gone bin_cluster ${@:2}
+	time ${PIPES}/bin_cluster.sh ${@:2}
+elif [ "$1" = bin_taxonomy ]; then
+        echo gone bin_taxonomy ${@:2}
+        time ${PIPES}/bin_taxonomy.sh ${@:2}
+elif [ "$1" = bin_quant ]; then
+	echo gone bin_quant ${@:2}
+	time ${PIPES}/bin_quant.sh ${@:2}
+elif [ "$1" = bin_function ]; then
+	echo gone bin_function ${@:2}
+	time ${PIPES}/bin_function.sh ${@:2}
+elif [ "$1" = arg ]; then
+	echo gone arg ${@:2}
+	time ${PIPES}/arg.sh ${@:2}
+elif [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+	help_message
+elif [ "$1" = "-v" ] || [ "$1" = "--version" ]; then
+  echo ""
+  echo -e "\033[32;1mGOne v=$VERSION\033[0m"
+	echo ""
+elif [ "$1" = "--show-config" ]; then
+	comm "gone script found in $(which gone) and config-gone file was found in $(which config-gone). Please make sure these paths are consistent with each other."
+	comm "Here are the contents of config-gone:"
+	cat $(which config-gone)
+else
+        comm "Please select a proper module of gone."
+        help_message
+        exit 1
+fi
+
+
+
+########################################################################################################
+########################               END OF gone PIPELINE                 ########################
+########################################################################################################

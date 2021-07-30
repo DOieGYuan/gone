@@ -1,0 +1,13 @@
+# Paths to custon pipelines and scripts of metaWRAP
+mw_path=$(which GOne)
+bin_path=${mw_path%/*}
+SOFT=${bin_path}/scripts-gone
+PIPES=${bin_path}/modules-gone
+
+# Databases (see 'Databases' section of GOne README for details)
+# path to indexed human genome (see GOne website for guide). This includes files hg38.bitmask and hg38.srprism.*
+BMTAGGER_DB=/scratch/gu/BMTAGGER_DB
+
+# paths to GTDBtk database
+
+# paths to checkM database
